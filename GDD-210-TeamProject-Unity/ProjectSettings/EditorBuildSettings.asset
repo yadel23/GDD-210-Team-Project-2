@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/yadel's scene.unity
+    guid: be494897f3425a240be45fe9765afd94
+  - enabled: 1
+    path: Assets/Scenes/InstructionsScene.unity
+    guid: b0b62ed842cb2f0488b492108383bf02
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 3685df43fe39f944f839a6960a6eba2f
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 26b0a52d657717b478184c2108a531ea
   m_configObjects: {}

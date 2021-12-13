@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,23 @@ public class PlayerMovement : MonoBehaviour
 	public Transform CamTransform;
 
 	public GameObject Clue1;
+	public GameObject Clue2;
+	public GameObject Clue3;
+	public GameObject Clue4;
+	public GameObject Clue5;
+	public GameObject Clue6;
+
+	public GameObject person;
+	public GameObject hiddenNote;
+	public GameObject hiddenLights;
+
+	public GameObject removeWall;
+
+	public GameObject flotingEye;
+
+	public GameObject flashLight;
+	public GameObject lightObj;
+
 
 	private void Update()
 	{
@@ -57,13 +75,56 @@ public class PlayerMovement : MonoBehaviour
 					Debug.DrawLine(CamTransform.position + new Vector3(0f, -1f, 0f), hit.point, Color.red);
 
 					string noteName = hit.transform.gameObject.name;
+					Debug.Log("noteName: " + noteName);
+
 					if (noteName == "Note1")
                     {
-
 						hideTheClue(Clue1);
 					}
+					else if(noteName == "Note2")
+                    {
+						hideTheClue(Clue2);
+					}
+					else if (noteName == "Note3")
+					{
+						hideTheClue(Clue3);
+					}
+					else if (noteName == "Note4")
+					{
+						hideTheClue(Clue4);
+					}
+					else if (noteName == "Note5")
+					{
+						hideTheClue(Clue5);
+					}
+					else if (noteName == "Note6")
+					{
+						hideTheClue(Clue6);
+					}
+					else if(noteName == "flashlight")
+                    {
+						flashLight.SetActive(false);
+						lightObj.SetActive(true);
+                    }
 
-                }
+					if (noteName == "person")
+                    {
+						person.SetActive(false);
+						hiddenNote.SetActive(true);
+						hiddenLights.SetActive(true);
+						removeWall.SetActive(false);
+					}
+
+
+					if (noteName == "flotingEye")
+                    {
+						flotingEye.SetActive(false);
+						Cursor.lockState = CursorLockMode.None;
+						SceneManager.LoadScene("WinScene");
+
+					}
+
+				}
 
 
 			}
