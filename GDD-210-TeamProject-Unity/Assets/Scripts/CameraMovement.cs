@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour
     public float YSensitivity;
     public Transform CamTransform;
     private float camRotation = 0f;
-
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -16,12 +16,12 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        float mouseInputY = Input.GetAxis("Mouse Y") * YSensitivity * Time.deltaTime;
+        float mouseInputY = Input.GetAxisRaw("Mouse Y") * YSensitivity * Time.deltaTime;
         camRotation -= mouseInputY;
         camRotation = Mathf.Clamp(camRotation, -90f, 90f);
         CamTransform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
 
-        float mouseInputX = Input.GetAxis("Mouse X") * Sensitivity;
+        float mouseInputX = Input.GetAxisRaw("Mouse X") * Sensitivity;
         transform.rotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0f, mouseInputX, 0f));
 
     }
